@@ -29,7 +29,7 @@ function App() {
         <Route path='/' element={<Section/>}/>
         <Route path='/adddoctor' element={<Addnewdoctor/>}/>
         <Route path='/doctor/:id' element={<Doctordetails/>}/>
-        <Route path='/weather/:id' element={<Weather/>}/>
+        <Route path='/weather' element={<Weather/>}/>
         
       </Routes>
       {/* <Section />
