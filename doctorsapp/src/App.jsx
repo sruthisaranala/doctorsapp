@@ -6,7 +6,7 @@ import Section from "./components/Section";
 import { useState } from "react";
 import { useEffect } from "react";
 import Doctordetails from "./components/Doctordetails";
-import Doctor from "./components/Doctor";
+import Weather from "./components/Weather";
 // import "./components/styles.css";
 
 function App() {
@@ -29,9 +29,10 @@ function App() {
         <Route path='/' element={<Section/>}/>
         <Route path='/adddoctor' element={<Addnewdoctor/>}/>
         <Route path='/doctor/:id' element={<Doctordetails/>}/>
-        <Route path='/doctors/:id'element={<Doctor/>}/>
+        <Route path='/weather/:id' element={<Weather/>}/>
+        
       </Routes>
-      <Section />
+      {/* <Section />
       <div className='doctorcontainer'>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
@@ -39,7 +40,7 @@ function App() {
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-      </div>
+      </div> */}
       {/* <Addnewdoctor/> */}
     </div>
   );

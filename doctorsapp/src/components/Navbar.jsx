@@ -10,7 +10,6 @@ import {useNavigate} from "react-router-dom"
       <div>
         <button onClick={() =>navigate('/')}>Home</button> 
         <button onClick={() =>navigate('/adddoctor')}>Add doctor</button>
-        <button onClick={() => navigate('/doctors')}>Doctors</button>
       </div>
     </header>
   );
