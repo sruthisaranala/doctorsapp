@@ -85,6 +85,7 @@ useEffect(() => {
             return (
               <Doctorcard
                 key={doctor.id}
+                id={doctor.id}
                 name={doctor.name}
                 gender={doctor.gender}
                 specialization={doctor.specialization}
