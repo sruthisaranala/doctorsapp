@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Doctordetails from "./components/Doctordetails";
 import Weather from "./components/Weather";
+import ExistingDoctors from "./components/ExistingDoctors";
 // import "./components/styles.css";
 
 function App() {
@@ -30,9 +31,10 @@ function App() {
         <Route path='/adddoctor' element={<Addnewdoctor/>}/>
         <Route path='/doctor/:id' element={<Doctordetails/>}/>
         <Route path='/weather' element={<Weather/>}/>
+        <Route path="/existingdoctors" element={<ExistingDoctors />} />
         
       </Routes>
-      {/* <Section />
+      <Section />
       <div className='doctorcontainer'>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
@@ -40,8 +42,8 @@ function App() {
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
         <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-      </div> */}
-      {/* <Addnewdoctor/> */}
+      </div> 
+     <Addnewdoctor/>
     </div>
   );
 }
