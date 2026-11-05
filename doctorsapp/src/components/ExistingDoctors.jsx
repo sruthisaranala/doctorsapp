@@ -13,37 +13,30 @@ function ExistingDoctors() {
 
       <Doctorcard
         id={5}
-        name="Sruthi"
+        name="Veena"
         gender="female"
-        specialization="heart specialist"
+        specialization="lungs specialist"
       />
 
       <Doctorcard
         id={6}
-        name="Sruthi"
+        name="Siri"
         gender="female"
-        specialization="heart specialist"
+        specialization="muscles specialist"
       />
 
       <Doctorcard
         id={7}
-        name="Sruthi"
+        name="Bhanu"
         gender="female"
-        specialization="heart specialist"
+        specialization="joints specialist"
       />
 
       <Doctorcard
         id={8}
-        name="Sruthi"
+        name="Durga"
         gender="female"
-        specialization="heart specialist"
-      />
-
-      <Doctorcard
-        id={9}
-        name="Sruthi"
-        gender="female"
-        specialization="heart specialist"
+        specialization="brain specialist"
       />
     </div>
   );

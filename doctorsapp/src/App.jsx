@@ -32,18 +32,7 @@ function App() {
         <Route path='/doctor/:id' element={<Doctordetails/>}/>
         <Route path='/weather' element={<Weather/>}/>
         <Route path="/existingdoctors" element={<ExistingDoctors />} />
-        
       </Routes>
-      <Section />
-      <div className='doctorcontainer'>
-        <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-        <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-        <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-        <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-        <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-        <Doctorcard name='Sruthi' gender='female' specialization='heart specialist'/>
-      </div> 
-     <Addnewdoctor/>
     </div>
   );
 }
