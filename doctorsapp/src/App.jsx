@@ -8,9 +8,11 @@ import { useEffect } from "react";
 import Doctordetails from "./components/Doctordetails";
 import Weather from "./components/Weather";
 import ExistingDoctors from "./components/ExistingDoctors";
+import Protectedroute from "./components/Protectedroute"; 
 // import "./components/styles.css";
 
 function App() {
+  let [islogin,setIslogin]=useState(false)
 //   //let c=0;
 //   let[c,setC]=useState(0)
 //   let[othercount,setOthercount]=useState(0)
@@ -19,6 +21,7 @@ function App() {
 //   },[othercount])
   return (
     <div>
+      <button onClick={()=>setIslogin(true)}>Click to Login</button>
        {/* {othercount}
       <button onClick={()=>setOthercount(othercount+1)}>othercount</button>
       {c}
@@ -28,7 +31,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Section/>}/>
-        <Route path='/adddoctor' element={<Addnewdoctor/>}/>
+        <Route path='/adddoctor' element={<Protectedroute islogin={islogin}> <Addnewdoctor/> </Protectedroute>}/>
         <Route path='/doctor/:id' element={<Doctordetails/>}/>
         <Route path='/weather' element={<Weather/>}/>
         <Route path="/existingdoctors" element={<ExistingDoctors />} />

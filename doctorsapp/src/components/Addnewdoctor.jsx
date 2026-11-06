@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Home from "./Home";
+import axios from "axios"
 function Addnewdoctor() {
     let [name,setName]=useState('');
     let [age,setAge]=useState('')
@@ -8,10 +9,36 @@ function Addnewdoctor() {
     let [salary,setSalary]=useState('')
 
     let [newdoctor,setNewdoctor]=useState(null)
-    function handlesubmit(event){
-        event.preventDefault()
-        setNewdoctor({id:Date.now(),name,age,gender,specialization,salary })
-       console.log(newdoctor)
+    async function handlesubmit(event){
+        event.preventDefault();
+        let doctor={
+            id:Date.now(),
+            name,
+            age,
+            gender,
+            specialization,
+            salary
+        };
+        await axios.post('https://doctorapibackend.onrender.com/doctors',doctor)
+        alert('Doctor added')
+        setNewdoctor(doctor);
+       console.log(doctor);
+    }
+    async function deldata(id){
+        await axios.delete(`https://doctorapibackend.onrender.com/doctors/${id}`)
+        alert('Doctor deleted')
+        setNewdoctor(id)
+    }
+    async function updatedoctor(id){
+        let data={
+            id,
+            name:prompt('Enter name') || 'Sruthi',
+            age:19,
+            specialization:'Phyisotherapy',
+            gender:prompt('Enter gender') || 'female',  
+            salary:87456231
+        }
+        await axios.put(`https://doctorapibackend.onrender.com/doctors/${id}`,data)
     }
 
   return (
@@ -29,7 +56,7 @@ function Addnewdoctor() {
             <input onChange={(e)=>setSalary(e.target.value)} value={salary} type="text" placeholder='Enter Salary'/>
             <button>Add doctor</button>
         </form>
-        <Home newdoctor={newdoctor}/>
+        <Home newdoctor={newdoctor} deldata={deldata} updatedoctor={updatedoctor}/>
 
     </div>
   )

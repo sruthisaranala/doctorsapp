@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Doctorcard from "./Doctorcard";
 import axios from "axios";
 
-function Home({ newdoctor }) {
+function Home({ newdoctor,deldata,updatedoctor}) {
   let [doctors, setDoctors] = useState([]);
   let [search, setSearch] = useState("");
   let [specialization, setSpecialization] = useState("");
@@ -13,23 +13,21 @@ function Home({ newdoctor }) {
   }
 useEffect(() => {
     fetchdata();
- }, []);
+ }, [newdoctor]);
 
-  useEffect(() => {
-    if (newdoctor) {
-      setDoctors((prev) => [...prev, newdoctor]);
-    }
-  }, [newdoctor]);
+  // useEffect(() => {
+  //   if (newdoctor) {
+  //     setDoctors((prev) => [...prev, newdoctor]);
+  //   }
+  // }, [newdoctor]);
 
-  const filtereddoctors = doctors.filter((val) => {
-    return (
-      val.name.toLowerCase().includes(search.toLowerCase()) &&
-      (
-        specialization == "" ||
-        val.specialization == specialization
-      )
-    );
-  });
+  let filtereddoctors = useMemo(()=>{
+    return doctors.filter((val) => {
+      console.log('running')
+    return (val.name.toLowerCase().includes(search.toLowerCase())) &&
+      (specialization == "" || val.specialization == specialization)
+  })
+},[search,specialization,doctors])
 
   return (
     <div>
@@ -59,7 +57,8 @@ useEffect(() => {
           {filtereddoctors.map((doctor) => {
             return (
               <Doctorcard
-                key={doctor.id}
+                deldata={deldata}
+                updatedoctor={updatedoctor}
                 id={doctor.id}
                 name={doctor.name}
                 gender={doctor.gender}
