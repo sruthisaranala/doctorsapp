@@ -9,10 +9,12 @@ import Doctordetails from "./components/Doctordetails";
 import Weather from "./components/Weather";
 import ExistingDoctors from "./components/ExistingDoctors";
 import Protectedroute from "./components/Protectedroute"; 
+import useCounter from "./components/useCounter";
 // import "./components/styles.css";
 
 function App() {
   let [islogin,setIslogin]=useState(false)
+  let {count,increment,decrement}=useCounter()
 //   //let c=0;
 //   let[c,setC]=useState(0)
 //   let[othercount,setOthercount]=useState(0)
@@ -21,6 +23,9 @@ function App() {
 //   },[othercount])
   return (
     <div>
+      {count}
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
       <button onClick={()=>setIslogin(true)}>Click to Login</button>
        {/* {othercount}
       <button onClick={()=>setOthercount(othercount+1)}>othercount</button>

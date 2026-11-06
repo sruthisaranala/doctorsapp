@@ -7,9 +7,13 @@ function Home({ newdoctor,deldata,updatedoctor}) {
   let [search, setSearch] = useState("");
   let [specialization, setSpecialization] = useState("");
   async function fetchdata() {  
+    try{
     let response = await axios.get("https://doctorapibackend.onrender.com/doctors");
     console.log(response.data)
     setDoctors(response.data);
+    }catch(err){
+      console.log(err); 
+    }
   }
 useEffect(() => {
     fetchdata();

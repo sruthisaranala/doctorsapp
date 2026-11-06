@@ -6,9 +6,14 @@ function Doctordetails() {
     let {id}=useParams()
     let [doctor,setDoctor]=useState('')
     async function fetchdata(){
-    let response = await axios.get("https://doctorapibackend.onrender.com/doctors");
-    let finaldata=data.find((val)=>val.id==id)
-    setDoctors(response.data);
+    try{
+      let response = await axios.get("https://doctorapibackend.onrender.com/doctors");
+      let finaldata=data.find((val)=>val.id==id)
+      console.log(response.data)
+      setDoctors(response.data);
+    }catch(err){
+      console.log(err); 
+    }
   }
     //   let data = [
     //   {
